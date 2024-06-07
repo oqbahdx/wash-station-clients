@@ -1,6 +1,6 @@
 # Washing Track
 
-![Washing Track Logo](https://via.placeholder.com/150) <!-- Replace with your logo URL -->
+
 
 A new Flutter project for tracking washing services.
 
