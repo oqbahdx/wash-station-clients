@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "438744050432",
+    "project_id": "washing-machine-application",
+    "storage_bucket": "washing-machine-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438744050432:android:4b5f43953df9f7d8e321e5",
+        "android_client_info": {
+          "package_name": "com.wahsing.station"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhV5IiJ93DqxrRBlthL1laRdV-LLvPa1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438744050432:android:b759aeb42f343118e321e5",
+        "android_client_info": {
+          "package_name": "com.washingtrack.washing_track"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhV5IiJ93DqxrRBlthL1laRdV-LLvPa1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

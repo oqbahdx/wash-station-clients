@@ -1,0 +1,32 @@
+class Constants {
+  static const String baseUrl = "https://wash-stations.com/api/client/";
+  static const String loginEndPoint = "login-api";
+  static const String registerEndPoint = "register-api";
+  static const String otpEndPoint = "verify-otp-api";
+  static const String rateEndPoint = "store-rate-of-worker";
+  static const String servicesHistoryEndPoint = "client-service-history";
+  static const String updateEndPoint = "update-client-information";
+  static const String serviceRequestEndPoint = "service-request";
+  static const String pendingRequestsEndPoint = "client-pending-request";
+  static const String activeRequestsEndPoint = "client-inprogress-request";
+  static const String completeRequestsEndPoint = "client-complete-request";
+  static const String forgotPasswordEndPoint = "password/reset";
+  static const String imagePathUrl = "https://wash-stations.com/";
+  static String token = "";
+  static String userId = "";
+  static String firstName = "";
+  static String lastName = "";
+  static String userEmail = "";
+  static String profilePicture = "";
+  static String phoneNumber = "";
+  static String bookingDate = "";
+  static String bookingTime = "";
+  static String address = "";
+  static String paymentMethod = "";
+  static String totalAmount = "";
+  static String streetName = "";
+  static List<String> servicesList = [];
+  static int userNumber = 0;
+  static const connectTimeOut = 15000;
+  static const receiveTimeOut = 15000;
+}
