@@ -2,6 +2,22 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:washing_track/presentation/add_address/view/add_address.dart';
+import 'package:washing_track/presentation/bloc/add_address/add_address_cubit.dart';
+import 'package:washing_track/presentation/bloc/booking_details/booking_details_cubit.dart';
+import 'package:washing_track/presentation/bloc/choose_location_bloc/choose_location_cubit.dart';
+import 'package:washing_track/presentation/bloc/find_car_wash_bloc/find_car_wash_cubit.dart';
+import 'package:washing_track/presentation/bloc/forgot_password_bloc/forgot_password_cubit.dart';
+import 'package:washing_track/presentation/bloc/get_location/get_location_cubit.dart';
+import 'package:washing_track/presentation/bloc/notification_bloc/notification_cubit.dart';
+import 'package:washing_track/presentation/bloc/otp_bloc/otp_cubit.dart';
+import 'package:washing_track/presentation/bloc/packages_bloc/packages_cubit.dart';
+import 'package:washing_track/presentation/bloc/profile_bloc/profile_cubit.dart';
+import 'package:washing_track/presentation/bloc/register_bloc/register_cubit.dart';
+import 'package:washing_track/presentation/bloc/review_booking_bloc/review_booking_cubit.dart';
+import 'package:washing_track/presentation/bloc/schedule_bloc/schedule_cubit.dart';
+import 'package:washing_track/presentation/bloc/select_language/select_language_cubit.dart';
+import 'package:washing_track/presentation/bloc/services_history/services_history_cubit.dart';
+import 'package:washing_track/presentation/bloc/settings_bloc/settings_cubit.dart';
 import 'package:washing_track/presentation/browse_map/view/browse_map.dart';
 import 'package:washing_track/presentation/car_wash_details/view/car_wash_details.dart';
 import 'package:washing_track/presentation/chat/view/chat_list.dart';
@@ -35,6 +51,8 @@ import '../booking_details/view/booking_details.dart';
 import '../chat/view/chat.dart';
 import '../choose_packages/view/choose_packages.dart';
 import '../on_boarding/view/on_boarding.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:washing_track/presentation/bloc/login_bloc/login_cubit.dart';
 
 class Routes {
   static const String splashRoute = "/";
@@ -80,40 +98,87 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.loginRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const LoginView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => LoginCubit(),
+                    child: const LoginView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const LoginView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => LoginCubit(),
+                    child: const LoginView(),
+                  ));
         }
       case Routes.registerRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const RegisterView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => RegisterCubit(),
+                    child: const RegisterView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const RegisterView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => RegisterCubit(),
+                    child: const RegisterView(),
+                  ));
         }
       case Routes.servicesHistoryRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const ServicesHistoryView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ServicesHistoryCubit(),
+                    child: const ServicesHistoryView(),
+                  ));
         } else {
           return CupertinoPageRoute(
-              builder: (_) => const ServicesHistoryView());
+              builder: (_) => BlocProvider(
+                    create: (context) => ServicesHistoryCubit(),
+                    child: const ServicesHistoryView(),
+                  ));
         }
       case Routes.notificationsRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const NotificationsView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => NotificationCubit(),
+                    child: const NotificationsView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const NotificationsView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => NotificationCubit(),
+                    child: const NotificationsView(),
+                  ));
         }
       case Routes.otpRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const OTPView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => OtpCubit(),
+                    child: const OTPView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const OTPView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => OtpCubit(),
+                    child: const OTPView(),
+                  ));
         }
       case Routes.profileRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const ProfileView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ProfileCubit(),
+                    child: const ProfileView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const ProfileView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ProfileCubit(),
+                    child: const ProfileView(),
+                  ));
         }
       case Routes.homeRoute:
         if (Platform.isAndroid) {
@@ -129,28 +194,62 @@ class RouteGenerator {
         }
       case Routes.forgotPasswordRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const ForgotPasswordView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ForgotPasswordCubit(),
+                    child: const ForgotPasswordView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const ForgotPasswordView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ForgotPasswordCubit(),
+                    child: const ForgotPasswordView(),
+                  ));
         }
       case Routes.getLocationRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const GetLocationView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => GetLocationCubit(),
+                    child: const GetLocationView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const GetLocationView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => GetLocationCubit(),
+                    child: const GetLocationView(),
+                  ));
         }
       case Routes.selectLanguagesRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const SelectLanguagesView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => SelectLanguageCubit(),
+                    child: const SelectLanguagesView(),
+                  ));
         } else {
           return CupertinoPageRoute(
-              builder: (_) => const SelectLanguagesView());
+              builder: (_) => BlocProvider(
+                    create: (context) => SelectLanguageCubit(),
+                    child: const SelectLanguagesView(),
+                  ));
         }
       case Routes.findCarWashRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const FindCarWashView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => FindCarWashCubit(),
+                    child: BlocProvider(
+                      create: (context) => FindCarWashCubit(),
+                      child: const FindCarWashView(),
+                    ),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const FindCarWashView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => FindCarWashCubit(),
+                    child: const FindCarWashView(),
+                  ));
         }
       case Routes.browseWashCarMapViewRoute:
         if (Platform.isAndroid) {
@@ -174,15 +273,31 @@ class RouteGenerator {
         }
       case Routes.bookingDetailsRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const BookingDetailsView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => BookingDetailsCubit(),
+                    child: const BookingDetailsView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const BookingDetailsView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => BookingDetailsCubit(),
+                    child: const BookingDetailsView(),
+                  ));
         }
       case Routes.chooseLocationRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const ChooseLocationView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ChooseLocationCubit(),
+                    child: const ChooseLocationView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const ChooseLocationView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ChooseLocationCubit(),
+                    child: const ChooseLocationView(),
+                  ));
         }
       case Routes.carWashDetailsRoute:
         if (Platform.isAndroid) {
@@ -192,15 +307,31 @@ class RouteGenerator {
         }
       case Routes.addAddressRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const AddAddressView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => AddAddressCubit(),
+                    child: const AddAddressView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const AddAddressView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => AddAddressCubit(),
+                    child: const AddAddressView(),
+                  ));
         }
       case Routes.settingsRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const SettingsView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => SettingsCubit(),
+                    child: const SettingsView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const SettingsView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => SettingsCubit(),
+                    child: const SettingsView(),
+                  ));
         }
       case Routes.choosePackagesAndServicesRoute:
         if (Platform.isAndroid) {
@@ -212,9 +343,17 @@ class RouteGenerator {
         }
       case Routes.choosePackagesRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const ChoosePackagesView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ChoosePackagesCubit(),
+                    child: const ChoosePackagesView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const ChoosePackagesView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ChoosePackagesCubit(),
+                    child: const ChoosePackagesView(),
+                  ));
         }
       case Routes.chooseServicesRoute:
         if (Platform.isAndroid) {
@@ -224,9 +363,17 @@ class RouteGenerator {
         }
       case Routes.scheduleRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const ScheduleView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ScheduleCubit(),
+                    child: const ScheduleView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const ScheduleView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ScheduleCubit(),
+                    child: const ScheduleView(),
+                  ));
         }
       case Routes.pickupAddressRoute:
         if (Platform.isAndroid) {
@@ -255,9 +402,17 @@ class RouteGenerator {
         }
       case Routes.reviewBookingRoute:
         if (Platform.isAndroid) {
-          return MaterialPageRoute(builder: (_) => const ReviewBookingView());
+          return MaterialPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ReviewBookingCubit(),
+                    child: const ReviewBookingView(),
+                  ));
         } else {
-          return CupertinoPageRoute(builder: (_) => const ReviewBookingView());
+          return CupertinoPageRoute(
+              builder: (_) => BlocProvider(
+                    create: (context) => ReviewBookingCubit(),
+                    child: const ReviewBookingView(),
+                  ));
         }
       case Routes.chatRoute:
         if (Platform.isAndroid) {
