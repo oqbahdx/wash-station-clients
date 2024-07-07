@@ -52,7 +52,20 @@ android {
         versionName flutterVersionName
         multiDexEnabled true
     }
+    flavorDimensions "default"
 
+    productFlavors {
+         prodution {
+            dimension "default"
+            resValue "string", "app_name", "car washing producation"
+
+        }
+        development {
+            dimension "default"
+            resValue "string", "app_name", "car washing development"
+            applicationIdSuffix ".dev"
+        }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

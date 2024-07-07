@@ -1,24 +1,21 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'login_model.g.dart';
+
+
+@JsonSerializable()
 class LoginModel {
   User? user;
   String? token;
 
   LoginModel({this.user, this.token});
 
-  LoginModel.fromJson(Map<String, dynamic> json) {
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
-    token = json['token'];
-  }
+  factory LoginModel.fromJson(Map<String, dynamic> json) => _$LoginModelFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (user != null) {
-      data['user'] = user!.toJson();
-    }
-    data['token'] = token;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$LoginModelToJson(this);
 }
 
+@JsonSerializable()
 class User {
   int? id;
   String? firstName;
@@ -32,53 +29,27 @@ class User {
 
   User(
       {this.id,
-        this.firstName,
-        this.lastName,
-        this.phoneNumber,
-        this.isVerified,
-        this.clientPicture,
-        this.trash,
-        this.createdAt,
-        this.updatedAt});
+      this.firstName,
+      this.lastName,
+      this.phoneNumber,
+      this.isVerified,
+      this.clientPicture,
+      this.trash,
+      this.createdAt,
+      this.updatedAt});
 
-  User.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    firstName = json['first_name'];
-    lastName = json['last_name'];
-    phoneNumber = json['phone_number'];
-    isVerified = json['isVerified'];
-    clientPicture = json['client_picture'];
-    trash = json['trash'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-  }
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['first_name'] = firstName;
-    data['last_name'] = lastName;
-    data['phone_number'] = phoneNumber;
-    data['isVerified'] = isVerified;
-    data['client_picture'] = clientPicture;
-    data['trash'] = trash;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }
+
+@JsonSerializable()
 class LoginModelError {
   String? message;
 
   LoginModelError({this.message});
 
-  LoginModelError.fromJson(Map<String, dynamic> json) {
-    message = json['message'];
-  }
+  factory LoginModelError.fromJson(Map<String, dynamic> json) => _$LoginModelErrorFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    return data;
-  }
+  Map<String, dynamic> toJson() => _$LoginModelErrorToJson(this);
 }
